@@ -2,12 +2,12 @@ const Koa = require("koa");
 //数据库初始化
 const {
     connect
-} = require("./db/init");
+} = require("./db/dbInit");
 
 //路由
 const router = require("koa-router")();
 //用户祖册控制器
-const user = require("./router/user");
+const user = require("./router/controller");
 
 //初始化koa
 const app = new Koa();
@@ -20,7 +20,7 @@ app.use(bodyParser());
 const cors = require("koa2-cors");
 app.use(cors());
 
-(async() => {
+(async () => {
     // 连接数据库
     await connect();
 })();
